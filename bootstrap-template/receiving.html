@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>S-EMS</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed" style= "background-color: #142739;">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html">S-EMS</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            
+            <!-- Navbar-->
+            <ul class="navbar-nav d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            
+
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav"> 
+                            <div class="sb-sidenav-menu-heading"></div>
+                            <a class="nav-link" href="dashboard.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                            </a>
+                            
+                            <a class="nav-link" href="inventory.html" >
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-scroll"></i></div>
+                                Inventory
+                            </a>
+                            
+                            <a class="nav-link" href="receiving.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-download"></i></div>
+                                Receiving <link rel="stylesheet" href="">
+                            </a>
+                             
+                            <a class="nav-link" href="supply.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-upload"></i></i></div>
+                                Supply
+                            </a>
+
+                            <a class="nav-link" href="hold-part.html">
+                                <div class="sb-nav-link-icon"><i class="fa-regular fa-hand"></i></div>
+                                Hold part list <link rel="stylesheet" href="">
+                            </a>
+
+                            <a class="nav-link" href="part-list.html">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+                                Part list <link rel="stylesheet" href="">
+                            </a>
+
+                            <a class="nav-link" href="tables.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables <link rel="stylesheet" href="">
+                            </a>
+
+                            <a class="nav-link" href="users.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Users <link rel="stylesheet" href="">
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div> 
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        
+                        <h1 class="mt-4 text-white">Receiving</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Receiving</li>
+                        </ol>
+                    
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <b class="col-sm-4">Receiving History List </b>
+                            </div>
+                           
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr class="table-success">
+                                            <th>Operator ID</th>
+                                            <th>Part number</th>
+                                            <th>Desc.</th>
+                                            <th>Qty</th>
+                                            <th>Receive date</th>
+                                            <th>Expiry date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>PO number</th>
+                                            <th>Desc.</th>
+                                            <th>Qty</th>
+                                            <th>Receive date</th>
+                                            <th>Expiry date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>5001707404</td>
+                                            <td>94728746</td>
+                                            <td>Adhesive</td>
+                                            <td>340</td>
+                                            <td>02/11/2021</td>
+                                            <td>24/05/2022</td>
+                                            <td>
+                                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Action
+                                                </button>
+
+                                              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                <li><a class="dropdown-item" href="#">Hold part</a></li>
+                                              </ul>
+
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Delete
+                                                </button>
+                                                
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+
+                                                                <div class="modal-body">
+                                                                    Are you sure that you want to permanently remove this item?
+                                                                </div>
+                                                                
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-primary">Yes</button>
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                </div> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>5001707404</td>
+                                            <td>4569188</td>
+                                            <td>Adhesive</td>
+                                            <td>320</td>
+                                            <td>04/10/2021</td>
+                                            <td>24/06/2022</td>
+                                            <td><button type="button" class="btn btn-warning">Edit</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="background-color: #ff0000;">
+                                            <td>5001707404</td>
+                                            <td>4804207</td>
+                                            <td>ATV</td>
+                                            <td>40</td>
+                                            <td>02/11/2021</td>
+                                            <td>24/05/2022</td>
+                                            <td><button type="button" class="btn btn-primary">Edit</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="background-color: #ff9900;">
+                                            <td>5001707404</td>
+                                            <td>1420933</td>
+                                            <td>Adhesive</td>
+                                            <td>30</td>
+                                            <td>02/11/2021</td>
+                                            <td>24/05/2022</td>
+                                            <td><button type="button" class="btn btn-primary">Edit</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>5001707404</td>
+                                            <td>3065770</td>
+                                            <td>Silicon</td>
+                                            <td>200</td>
+                                            <td>22/03/2020</td>
+                                            <td>24/09/2024</td>
+                                            <td><button type="button" class="btn btn-primary">Edit</button>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>5001707404</td>
+                                            <td>6550674</td>
+                                            <td>ATV</td>
+                                            <td>340</td>
+                                            <td>02/11/2021</td>
+                                            <td>24/05/2022</td>
+                                            <td><button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Action
+                                              </button>
+                                              <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <li><a class="dropdown-item" href="#">Edit</a></li>
+                                                <li><a class="dropdown-item" href="#">Hold part</a></li>
+                                              </ul>
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                
+                </main>
+                
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+
+        
+
+    </body>
+</html>
